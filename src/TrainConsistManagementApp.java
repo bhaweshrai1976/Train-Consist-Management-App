@@ -1,16 +1,54 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
+/**
+ * =========================================================
+ * MAIN CLASS - UseCase3TrainConsistMgmt
+ * =========================================================
+ *
+ * Use Case 3: Track Unique Bogie IDs
+ *
+ * Description:
+ * This class ensures that duplicate bogie IDs are not
+ * added into the train formation using HashSet.
+ *
+ * At this stage, the application:
+ * - Stores bogie IDs
+ * - Prevents duplicates automatically
+ * - Displays unique bogie identifiers
+ *
+ * This maps uniqueness validation using Set.
+ *
+ * @author Developer
+ * @version 3.0
+ */
 public class TrainConsistManagementApp {
 
     public static void main(String[] args) {
 
-        // Display welcome banner
-        System.out.println("\n==============================");
-        System.out.println(" Train Consist Management App");
-        System.out.println("==============================\n");
+        System.out.println("======================================");
+        System.out.println(" UC3 - Track Unique Bogie IDs ");
+        System.out.println("======================================\n");
 
-        // Create a dynamic list to store train bogies
-        List<String> trainConsist = new ArrayList<>();
+        // Create a Set to store unique bogie IDs
+        // HashSet stores only unique values
+        Set<String> bogies = new HashSet<>();
+
+        // ---- ADD IDs (including duplicates) ----
+        // add() inserts bogie IDs into the set
+        bogies.add("BG101");
+        bogies.add("BG102");
+        bogies.add("BG103");
+        bogies.add("BG104");
+
+        // Duplicate entries (will be ignored automatically)
+        bogies.add("BG101");
+        bogies.add("BG102");
+
+        // ---- DISPLAY UNIQUE BOGIES ----
+        System.out.println("Unique Bogie IDs in Train:");
+        for (String bogie : bogies) {
+            System.out.println(bogie);
+        }
     }
 }
